@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Vacancies</title>
+</head>
+<body>
+    <h1>Search Vacancies</h1>
+    <form method="get">
+        <input type="text" name="query" placeholder="Enter query" value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+    <h2>Results</h2>
+    <ul>
+        {% for vacancy in vacancies %}
+            <li>
+                <h3>{{ vacancy.title }}</h3>
+                <p>{{ vacancy.company }} - {{ vacancy.location }}</p>
+                <p>{{ vacancy.description }}</p>
+                <a href="{{ vacancy.url }}">View Job</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

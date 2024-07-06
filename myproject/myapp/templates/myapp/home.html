@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Parser</title>
+</head>
+<body>
+    <h1>Job Parser</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="query" placeholder="Enter query">
+        <button type="submit">Parse</button>
+    </form>
+    <h2>Vacancies</h2>
+    <ul>
+        {% for vacancy in vacancies %}
+            <li>
+                <h3>{{ vacancy.title }}</h3>
+                <p>{{ vacancy.company }} - {{ vacancy.location }}</p>
+                <p>{{ vacancy.description }}</p>
+                <a href="{{ vacancy.url }}">View Job</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
